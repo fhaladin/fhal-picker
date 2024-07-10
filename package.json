@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && babel src -d dist && babel-minify dist/fhal-picker.js --out-file dist/fhal-picker.min.js --mangle.keepClassName && sass src/style/fhal-picker.scss dist/css/fhal-picker.css --style compressed"
+    "compile-style": "sass src/style/fhal-picker.scss dist/css/fhal-picker.css --style compressed",
+    "build": "rm -rf dist && babel src -d dist && babel-minify dist/fhal-picker.js --out-file dist/fhal-picker.min.js --mangle.keepClassName && compile-style"
   },
   "keywords": [],
   "author": "",
