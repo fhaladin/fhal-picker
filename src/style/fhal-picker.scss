@@ -1,3 +1,138 @@
-h1 {
-  color: red;
+@import './variables';
+
+.calendar {
+  font-family: 'Poppins', sans-serif;
+  color: $black;
+  background-color: $white;
+  box-shadow: $shadow;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.calendar-date {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing;
+  padding: $spacing;
+  font-weight: 500;
+  font-size: $font-size;
+  line-height: $line-height;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__select-month {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: $primary;
+    cursor: pointer;
+
+    svg {
+      margin: 12px;
+    }
+  }
+
+  &__toolbar {
+    display: flex;
+  }
+
+  &__tool-prev, &__tool-next {
+    border: none;
+    background-color: transparent;
+    color: $primary;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: calc($spacing / 2);
+  }
+
+  &__weeks, &__days {
+    display: flex;
+  }
+
+  &__week, &__day {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $date-item-width;
+    height: $date-item-height;
+    color: $black;
+  }
+  
+  &__week {
+    color: $grey-400;
+
+    &.weekend {
+      color: $red;
+    }
+  }
+
+  &__day {
+    &.off {
+      opacity: 0.5;
+      color: $grey-300;
+    }
+
+    &.today {
+      position: relative;
+
+      &::before {
+        position: absolute;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    gap: $spacing;
+  }
+
+  &__button-reset, &__button-select {
+    width: 100%;
+    flex-grow: 0;
+    flex-shrink: 1;
+    padding: 12px;
+    border-radius: $radius;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:active {
+      box-shadow: $shadow-button;
+    }
+  }
+
+  &__button-reset {
+    color: $black;
+    background-color: $soft-grey;
+    border: 1px solid $grey-100;
+  }
+
+  &__button-select {
+    background-color: $primary;
+    color: $white;
+    border: none;
+  }
 }
